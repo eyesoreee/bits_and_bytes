@@ -101,13 +101,13 @@
         "./imports"
       ],
       "#tailwindcss": [
-        "./tailwind.css"
+        "./tailwind"
       ],
       "#tailwindcss/sources": [
-        "./tailwindcss/sources.css"
+        "./tailwindcss/sources"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev.json"
+        "./manifest/meta/dev"
       ],
       "#components": [
         "./components"
@@ -167,6 +167,7 @@
     "../dist",
     "../.data",
     "../node_modules",
+    "../../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxt/eslint/node_modules",
     "../node_modules/@nuxt/icon/node_modules",
