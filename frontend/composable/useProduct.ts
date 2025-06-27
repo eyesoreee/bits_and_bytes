@@ -79,6 +79,10 @@ export const useProduct = () => {
     filteredProducts.value.slice(0, displayedCount.value)
   );
 
+  const featuredProducts = computed(() => {
+    return filteredProducts.value.slice(0, 4);
+  });
+
   const hasMore = computed(
     () => displayedCount.value < filteredProducts.value.length
   );
@@ -102,5 +106,6 @@ export const useProduct = () => {
     loading: pending,
     error,
     refresh,
+    featuredProducts,
   };
 };
