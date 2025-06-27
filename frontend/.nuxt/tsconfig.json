@@ -76,6 +76,9 @@
       "assets": [
         "../assets"
       ],
+      "assets/*": [
+        "../assets/*"
+      ],
       "public": [
         "../public"
       ],
@@ -101,7 +104,7 @@
         "./imports"
       ],
       "#tailwindcss": [
-        "./tailwind"
+        "../assets/css/main"
       ],
       "#tailwindcss/sources": [
         "./tailwindcss/sources"

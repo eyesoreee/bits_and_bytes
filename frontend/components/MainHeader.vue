@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { useClickCategory } from "~/composable/Categories";
+import { useCategory } from "~/composable/useCategory";
 
 const cartItemCount = ref<number>(3);
-const { showCategories, categories, toggleCategories } = useClickCategory();
+const { categories, showCategories, error, loading, toggleCategories } =
+  useCategory();
 </script>
 
 <template>
@@ -13,7 +14,7 @@ const { showCategories, categories, toggleCategories } = useClickCategory();
     >
       <!-- Title -->
       <NuxtLink to="/" class="flex items-center gap-1">
-        <Icon name="tabler:binary" class="w-8 h-8 text-blue-400" />
+        <Icon name="tabler:binary" class="text-2xl text-blue-400" />
         <span class="text-xl font-bold">Bits & Bytes</span>
       </NuxtLink>
 
@@ -23,7 +24,7 @@ const { showCategories, categories, toggleCategories } = useClickCategory();
           <li><NuxtLink to="/">Home</NuxtLink></li>
           <li><NuxtLink to="/products">Products</NuxtLink></li>
           <li>
-            <button @click="toggleCategories" class="cursor-pointer">
+            <button class="cursor-pointer" @click="toggleCategories">
               Categories
             </button>
           </li>
@@ -70,7 +71,15 @@ const { showCategories, categories, toggleCategories } = useClickCategory();
 
     <!-- Bottom Row -->
     <nav v-if="showCategories" class="border-t border-gray-300">
-      <ul class="max-w-7xl mx-auto flex items-center px-4 py-1">
+      <nav v-if="loading" class="px-4 py-2 text-gray-500 italic">
+        Loading categories...
+      </nav>
+
+      <nav v-else-if="error" class="px-4 py-2 text-red-500">
+        Failed to load categories. Please try again.
+      </nav>
+
+      <ul v-else class="max-w-7xl mx-auto flex items-center px-4 py-1">
         <li v-for="category in categories" :key="category.name">
           <NuxtLink
             :to="`/products/${category.name.toLowerCase().replace(' ', '-')}`"

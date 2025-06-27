@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard.vue";
 </script>
 
 <template>
-  <section class="min-h-screen flex">
+  <section class="min-h-screen flex relative">
     <section
       class="max-w-7xl mx-auto px-4 py-4 flex flex-col items-center justify-center"
     >
@@ -19,6 +19,10 @@ import ProductCard from "./ProductCard.vue";
           <ProductCard />
         </li>
       </ul>
+
+      <NuxtLink to="/products" class="absolute bottom-5 text-lg">
+        Load More
+      </NuxtLink>
     </section>
   </section>
 </template>

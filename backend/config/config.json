@@ -5,7 +5,14 @@
     "database": "beek3svkkuzbpnnyi9kn",
     "host": "91.208.207.32",
     "dialect": "postgres",
-    "port": "50013"
+    "port": "50013",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    },
+    "logging": false
   },
   "test": {
     "username": "root",
