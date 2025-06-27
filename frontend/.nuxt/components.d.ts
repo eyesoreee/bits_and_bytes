@@ -13,7 +13,7 @@ type HydrationStrategies = {
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
       'FeaturedProducts': typeof import("../components/FeaturedProducts.vue")['default']
-    'HeroSection': typeof imp../components/MainFooter.vueection.vue")['default']
+    'HeroSection': typeof import("../components/HeroSection.vue")['default']
     'MainFooter': typeof import("../components/MainFooter.vue")['default']
     'MainHeader': typeof import("../components/MainHeader.vue")['default']
     'ProductCard': typeof import("../components/ProductCard.vue")['default']
@@ -43,7 +43,7 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
       'LazyFeaturedProducts': LazyComponent<typeof import("../components/FeaturedProducts.vue")['default']>
-    'LazyHeroSection': LazyComponent<typeof imp../components/MainFooter.vueection.vue")['default']>
+    'LazyHeroSection': LazyComponent<typeof import("../components/HeroSection.vue")['default']>
     'LazyMainFooter': LazyComponent<typeof import("../components/MainFooter.vue")['default']>
     'LazyMainHeader': LazyComponent<typeof import("../components/MainHeader.vue")['default']>
     'LazyProductCard': LazyComponent<typeof import("../components/ProductCard.vue")['default']>
@@ -79,7 +79,7 @@ declare module 'vue' {
 }
 
 export const FeaturedProducts: typeof import("../components/FeaturedProducts.vue")['default']
-export const HeroSection: typeof imp../components/MainFooter.vueection.vue")['default']
+export const HeroSection: typeof import("../components/HeroSection.vue")['default']
 export const MainFooter: typeof import("../components/MainFooter.vue")['default']
 export const MainHeader: typeof import("../components/MainHeader.vue")['default']
 export const ProductCard: typeof import("../components/ProductCard.vue")['default']
@@ -109,7 +109,7 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyFeaturedProducts: LazyComponent<typeof import("../components/FeaturedProducts.vue")['default']>
-export const LazyHeroSection: LazyComponent<typeof imp../components/MainFooter.vueection.vue")['default']>
+export const LazyHeroSection: LazyComponent<typeof import("../components/HeroSection.vue")['default']>
 export const LazyMainFooter: LazyComponent<typeof import("../components/MainFooter.vue")['default']>
 export const LazyMainHeader: LazyComponent<typeof import("../components/MainHeader.vue")['default']>
 export const LazyProductCard: LazyComponent<typeof import("../components/ProductCard.vue")['default']>
