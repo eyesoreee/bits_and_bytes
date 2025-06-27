@@ -37,7 +37,7 @@
         <li class="flex flex-col items-center text-center">
           <Icon
             name="tabler:truck-delivery"
-            class="w-12 h-12 text-blue-600 mb-2"
+            class="text-7xl text-blue-600 mb-2"
           />
           <h2 class="text-xl font-semibold text-gray-800">Free Shipping</h2>
           <p class="text-gray-600">Free shipping on orders over $50</p>
@@ -46,14 +46,14 @@
         <li class="flex flex-col items-center text-center">
           <Icon
             name="tabler:shield-check"
-            class="w-12 h-12 text-blue-600 mb-2"
+            class="text-7xl text-blue-600 mb-2"
           />
           <h2 class="text-xl font-semibold text-gray-800">2-Year Warranty</h2>
           <p class="text-gray-600">Comprehensive warranty on all products</p>
         </li>
 
         <li class="flex flex-col items-center text-center">
-          <Icon name="tabler:headphones" class="w-12 h-12 text-blue-600 mb-2" />
+          <Icon name="tabler:headphones" class="text-7xl text-blue-600 mb-2" />
           <h2 class="text-xl font-semibold text-gray-800">24/7 Support</h2>
           <p class="text-gray-600">Expert technical support available</p>
         </li>
