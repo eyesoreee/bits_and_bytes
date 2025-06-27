@@ -79,6 +79,9 @@
       "assets": [
         "../assets"
       ],
+      "assets/*": [
+        "../assets/*"
+      ],
       "public": [
         "../public"
       ],
@@ -98,7 +101,7 @@
         "../node_modules/nuxt/dist/head/runtime/composables/v3"
       ],
       "#tailwindcss": [
-        "./tailwind"
+        "../assets/css/main"
       ],
       "#tailwindcss/sources": [
         "./tailwindcss/sources"
