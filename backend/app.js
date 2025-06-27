@@ -11,7 +11,9 @@ const manufacturerRoute = require("./routes/manufacturerRoute");
 const app = express();
 app.use(express.json());
 
-app.use("/icons", express.static(path.join(__dirname, "public/icons")));
+const cors = require("cors");
+app.use(cors({ origin: "http://localhost:3000" }));
+
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 app.use("/user", userRoute);
