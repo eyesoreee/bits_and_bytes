@@ -24,7 +24,7 @@ const { categories, showCategories, error, loading, toggleCategories } =
           <li><NuxtLink to="/">Home</NuxtLink></li>
           <li><NuxtLink to="/products">Products</NuxtLink></li>
           <li>
-            <button @click="toggleCategories" class="cursor-pointer">
+            <button class="cursor-pointer" @click="toggleCategories">
               Categories
             </button>
           </li>

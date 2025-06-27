@@ -2,25 +2,31 @@ import type { Manufacturer } from "~/types/Manufacturer";
 
 export const useManufacturer = () => {
   const config = useRuntimeConfig();
+  const show = ref(false);
+  const manufacturers = useState<Manufacturer[]>(
+    "global-manufacturers",
+    () => []
+  );
 
-  const showManufacturers = ref(false);
-
-  const { data, error, pending, refresh } = useFetch<Manufacturer[]>(
+  const { error, pending, refresh } = useFetch<Manufacturer[]>(
     "/manufacturer",
     {
       baseURL: config.public.apiBase,
       key: "manufacturers",
+      onResponse({ response }) {
+        if (response._data) manufacturers.value = response._data;
+      },
     }
   );
 
-  function toggleManufacturers() {
-    showManufacturers.value = !showManufacturers.value;
-  }
+  const toggle = () => {
+    show.value = !show.value;
+  };
 
   return {
-    showManufacturers,
-    toggleManufacturers,
-    manufacturers: data,
+    show,
+    toggle,
+    manufacturers,
     error,
     loading: pending,
     refresh,

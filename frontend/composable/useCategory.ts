@@ -2,29 +2,25 @@ import type { Category } from "~/types/Category";
 
 export const useCategory = () => {
   const config = useRuntimeConfig();
-  const showCategories = ref(false);
-
-  const categoriesState = useState<Category[]>("global-categories", () => []);
-  const shouldFetch = computed(() => categoriesState.value.length === 0);
+  const show = ref(false);
+  const categories = useState<Category[]>("global-categories", () => []);
 
   const { error, pending, refresh } = useFetch<Category[]>("/category", {
     baseURL: config.public.apiBase,
     key: "categories",
-    immediate: shouldFetch.value,
-    watch: [shouldFetch],
     onResponse({ response }) {
-      if (response._data) categoriesState.value = response._data;
+      if (response._data) categories.value = response._data;
     },
   });
 
-  function toggleCategories() {
-    showCategories.value = !showCategories.value;
-  }
+  const toggle = () => {
+    show.value = !show.value;
+  };
 
   return {
-    showCategories,
-    toggleCategories,
-    categories: categoriesState,
+    showCategories: show,
+    toggleCategories: toggle,
+    categories,
     error,
     loading: pending,
     refresh,

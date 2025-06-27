@@ -2,50 +2,39 @@ import type { Product } from "~/types/Product";
 
 export const useProduct = () => {
   const config = useRuntimeConfig();
-
-  const productsState = useState<Product[]>("global-products", () => []);
-  const shouldFetch = computed(() => productsState.value.length === 0);
+  const products = useState<Product[]>("global-products", () => []);
 
   const { error, pending, refresh } = useFetch<Product[]>("/product", {
     baseURL: config.public.apiBase,
     key: "products",
-    immediate: shouldFetch.value,
-    watch: [shouldFetch],
     onResponse({ response }) {
-      if (response._data) productsState.value = response._data;
+      if (response._data) products.value = response._data;
     },
   });
 
-  const initialValue = 8;
+  const displayedCount = ref(8);
   const itemsPerLoad = 8;
-  const displayedItemCount = ref(initialValue);
 
-  const totalItems = computed(() => productsState.value?.length || 0);
-
-  const displayedProducts = computed(
-    () => productsState.value?.slice(0, displayedItemCount.value) || []
+  const displayedProducts = computed(() =>
+    products.value.slice(0, displayedCount.value)
   );
 
-  const hasMoreProducts = computed(
-    () => displayedItemCount.value < totalItems.value
-  );
+  const hasMore = computed(() => displayedCount.value < products.value.length);
 
-  const onLoadMore = () => {
-    if (hasMoreProducts.value) {
-      displayedItemCount.value = Math.min(
-        displayedItemCount.value + itemsPerLoad,
-        totalItems.value
+  const loadMore = () => {
+    if (hasMore.value) {
+      displayedCount.value = Math.min(
+        displayedCount.value + itemsPerLoad,
+        products.value.length
       );
     }
   };
 
   return {
-    products: productsState,
+    products,
     displayedProducts,
-    onLoadMore,
-    hasMoreProducts,
-    totalItems,
-    displayedItemCount,
+    loadMoreProducts: loadMore,
+    hasMoreProducts: hasMore,
     loading: pending,
     error,
     refresh,

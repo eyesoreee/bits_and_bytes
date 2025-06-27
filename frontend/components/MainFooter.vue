@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/html-self-closing -->
 <template>
   <footer class="bg-gray-900 text-gray-300">
     <!-- Main footer content -->
